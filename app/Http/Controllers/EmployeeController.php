@@ -137,16 +137,13 @@ class EmployeeController extends Controller
         DB::table('employees')
         ->where('id', $id)
         ->update([
-            'firstname' => $request->input('firstName'),
-            'lastname' => $request->input('lastName'),
-            'email' => $request->input('email'),
-            'age' => $request->input('age'),
-            'position_id' => $request->input('position')
+            'firstname' => $request->firstName,
+            'lastname' => $request->lastName,
+            'email' => $request->email,
+            'age' => $request->age,
+            'position_id' => $request->position,
         ]);
         return redirect()->route('employees.index');
-
-
-    return view('employee.index', compact('pageTitle', 'employee'));
     }
 
     /**
